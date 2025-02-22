@@ -25,6 +25,8 @@
   #endif
 #endif
 
+using namespace CLHEP;
+
 NumiDetectorMessenger::NumiDetectorMessenger( NumiDetectorConstruction* NumiDet):NumiDetector(NumiDet)
 {
 
@@ -235,12 +237,12 @@ NumiDetectorMessenger::NumiDetectorMessenger( NumiDetectorConstruction* NumiDet)
 	fHorn1RotationCmd = new G4UIcmdWith3VectorAndUnit("/NuMI/det/set/horn1Rotation", this);
         fHorn1RotationCmd->SetParameterName("Horn1RotationPhi", "Horn1RotationTheta", "Horn1RotationPsi", false);
         fHorn1RotationCmd->SetGuidance("Set the horn1 rotation");
-	fHorn1RotationCmd->SetDefaultValue(0.0*rad);
+	fHorn1RotationCmd->SetDefaultValue(G4ThreeVector(0.0*rad));
 
 	fHorn2RotationCmd = new G4UIcmdWith3VectorAndUnit("/NuMI/det/set/horn2Rotation", this);
         fHorn2RotationCmd->SetParameterName("Horn2RotationPhi", "Horn2RotationTheta", "Horn2RotationPsi", false);
         fHorn2RotationCmd->SetGuidance("Set the horn2 rotation");
-	fHorn2RotationCmd->SetDefaultValue(0.0*rad);
+	fHorn2RotationCmd->SetDefaultValue(G4ThreeVector(0.0*rad, 0.0*rad) );
 
         fBaffleOuterRadiusCmd
             = new G4UIcmdWithADoubleAndUnit("/NuMI/det/set/baffleOuterRadius",this);

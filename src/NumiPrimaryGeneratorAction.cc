@@ -33,6 +33,7 @@
 #include <TSystem.h>
 
 using namespace std;
+using namespace CLHEP;
 
 NumiPrimaryGeneratorAction::NumiPrimaryGeneratorAction()
    :fStart(false),

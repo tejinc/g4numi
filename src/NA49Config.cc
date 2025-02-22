@@ -2,6 +2,7 @@
 #include "NA49Targets.hh"
 #include <iostream>
 
+using namespace CLHEP;
 NA49Config :: NA49Config (int argc, char **argv) : 
                           runNumber("1"), nEvents("100000"), isConfirmed(false)
 {

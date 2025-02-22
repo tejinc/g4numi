@@ -6,8 +6,11 @@
 #include "NumiDecayPipeMagneticField.hh"
 #include "G4ios.hh"
 #include "G4TransportationManager.hh"
+#include "G4TouchableHistoryHandle.hh"
 #include "NumiDataInput.hh" 
 #include "G4VPhysicalVolume.hh"
+
+using namespace CLHEP;
 
 //magnetic field inside the decay pipe ====================================================
 NumiDecayPipeMagneticField::NumiDecayPipeMagneticField()

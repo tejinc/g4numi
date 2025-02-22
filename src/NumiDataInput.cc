@@ -21,7 +21,7 @@
 #include "G4Material.hh"
 #include "G4UnitsTable.hh"
 
-
+using namespace CLHEP;
 
 static const G4double in = 2.54*cm;
 static const G4double fTargetZ0_ref   = -0.35*m; //LE000 position

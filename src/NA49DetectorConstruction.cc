@@ -22,6 +22,7 @@
 #include "G4NistManager.hh"
 
 
+using namespace CLHEP;
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 NA49DetectorConstruction::NA49DetectorConstruction(const Target &t)

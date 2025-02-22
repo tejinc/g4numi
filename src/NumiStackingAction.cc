@@ -20,6 +20,8 @@
 #include "NumiAnalysis.hh"
 #include "NumiRunManager.hh"
 
+using namespace CLHEP;
+
 NumiStackingAction::NumiStackingAction()
 { 
   NumiData = NumiDataInput::GetNumiDataInput();

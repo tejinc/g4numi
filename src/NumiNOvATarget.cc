@@ -29,6 +29,7 @@
 #include "G4Transform3D.hh"
 #include "G4RotationMatrix.hh"
 
+using namespace CLHEP;
 
 void NumiDetectorConstruction::ConstructNOvATarget()
 {

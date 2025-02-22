@@ -20,6 +20,7 @@
 #include "G4PVPlacement.hh"
 #include <math.h>
 
+using namespace CLHEP;
 static const G4double in = 2.54*cm;
 static const G4double ft = 12.*in;
 

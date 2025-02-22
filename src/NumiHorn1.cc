@@ -19,6 +19,7 @@
 #include "G4FieldManager.hh"
 #include "NumiHornSpiderSupport.hh"
 
+using namespace CLHEP;
 static const G4double in=2.54*cm;
 
 void NumiDetectorConstruction::ConstructHorn1(G4ThreeVector hornpos, G4RotationMatrix hornrot)
@@ -750,7 +751,7 @@ void NumiDetectorConstruction::ConstructHorn1Alternate(G4ThreeVector hornpos, G4
    if ( hornWaterLayerThick > 10.) {
      std::ostringstream messageOStr; messageOStr << " Unreasonable amount of water " << hornWaterLayerThick;
      std::string message(messageOStr.str());
-     G4Exception("NumiDetectorConstruction::ConstructHorn1");
+     G4Exception("NumiDetectorConstruction::ConstructHorn1", " ", FatalErrorInArgument, " Too Thick! ");
      exit(2); // only under 4.9.2 .. not reachable under 4.9.5 
    }
    //

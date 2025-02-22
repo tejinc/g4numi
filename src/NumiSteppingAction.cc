@@ -32,6 +32,8 @@
 #include "G4FieldManager.hh"
 #include "G4MagneticField.hh"
 
+using namespace CLHEP;
+
 NumiSteppingAction::NumiSteppingAction()
    :fPrintAllSteps(false),
     fPrintSplitting(false),

@@ -13,6 +13,8 @@
 #include "NumiDataInput.hh"
 #include "NumiDetectorConstruction.hh"
 
+using namespace CLHEP;
+
 //magnetic field between conductors ====================================================
 NumiMagneticField::NumiMagneticField():
       fHorn1FieldZCutUpstream(-32.0),
@@ -99,7 +101,7 @@ void NumiMagneticField::GetFieldValue(const double PointGlobal[3],double *Bfield
     numinavigator->SetWorldVolume(theNavigator->GetWorldVolume());
     G4ThreeVector Position=G4ThreeVector(PointGlobal[0],PointGlobal[1],PointGlobal[2]);
     //G4VPhysicalVolume* myVolume = numinavigator->LocateGlobalPointAndSetup(Position);
-    G4TouchableHistoryHandle aTouchable = numinavigator->CreateTouchableHistoryHandle();
+    G4TouchableHandle aTouchable = numinavigator->CreateTouchableHistoryHandle();
     G4ThreeVector localPosition = aTouchable->GetHistory()->GetTopTransform().TransformPoint(Position); 
     delete numinavigator;
 //    std::cerr << " G4Transform, at Z = " << PointGlobal[2] << "  X= " << localPosition[0] << " approx " << Point[0] 
@@ -218,7 +220,7 @@ void NumiMagneticField::GetFieldValue(const double PointGlobal[3],double *Bfield
     numinavigator->SetWorldVolume(theNavigator->GetWorldVolume());
     G4ThreeVector Position=G4ThreeVector(Point[0],Point[1],Point[2]);
     //G4VPhysicalVolume* myVolume = numinavigator->LocateGlobalPointAndSetup(Position);
-    G4TouchableHistoryHandle aTouchable = numinavigator->CreateTouchableHistoryHandle();
+    G4TouchableHandle aTouchable = numinavigator->CreateTouchableHistoryHandle();
     G4ThreeVector localPosition = aTouchable->GetHistory()->GetTopTransform().TransformPoint(Position);
     
     delete numinavigator;
@@ -1420,7 +1422,7 @@ void NumiMagneticFieldIC::GetFieldValue(const double PointGlobal[3],double *Bfie
     numinavigator->SetWorldVolume(theNavigator->GetWorldVolume());
     G4ThreeVector Position=G4ThreeVector(PointGlobal[0],PointGlobal[1],PointGlobal[2]);
     //G4VPhysicalVolume* myVolume = numinavigator->LocateGlobalPointAndSetup(Position);
-    G4TouchableHistoryHandle aTouchable = numinavigator->CreateTouchableHistoryHandle();
+    G4TouchableHandle aTouchable = numinavigator->CreateTouchableHistoryHandle();
     G4ThreeVector localPosition = aTouchable->GetHistory()->GetTopTransform().TransformPoint(Position); 
     delete numinavigator;
 //    std::cerr << " G4Transform, at Z = " << PointGlobal[2] << "  X= " << localPosition[0] << " approx " << Point[0] 
@@ -1447,7 +1449,7 @@ void NumiMagneticFieldIC::GetFieldValue(const double PointGlobal[3],double *Bfie
 //  G4ThreeVector Position=G4ThreeVector(Point[0],Point[1],Point[2]); 
   G4ThreeVector Position=G4ThreeVector(PointGlobal[0],PointGlobal[1],PointGlobal[2]); 
   G4VPhysicalVolume* myVolume = numinavigator->LocateGlobalPointAndSetup(Position);
-  G4TouchableHistoryHandle aTouchable = numinavigator->CreateTouchableHistoryHandle();
+  G4TouchableHandle aTouchable = numinavigator->CreateTouchableHistoryHandle();
   G4ThreeVector localPosition = aTouchable->GetHistory()->GetTopTransform().TransformPoint(Position);
 //  std::cerr << " Evaluating magnetic field in volume " << myVolume->GetName() 
 //              << " R " << std::sqrt(Point[0]*Point[0] + Point[1]*Point[1]) << " z " << Point[2] << std::endl;
@@ -1580,7 +1582,7 @@ void NumiMagneticFieldOC::GetFieldValue(const double PointGlobal[3],double *Bfie
     numinavigator->SetWorldVolume(theNavigator->GetWorldVolume());
     G4ThreeVector Position=G4ThreeVector(PointGlobal[0],PointGlobal[1],PointGlobal[2]);
     //G4VPhysicalVolume* myVolume = numinavigator->LocateGlobalPointAndSetup(Position);
-    G4TouchableHistoryHandle aTouchable = numinavigator->CreateTouchableHistoryHandle();
+    G4TouchableHandle aTouchable = numinavigator->CreateTouchableHistoryHandle();
     G4ThreeVector localPosition = aTouchable->GetHistory()->GetTopTransform().TransformPoint(Position); 
     delete numinavigator;
 //    std::cerr << " G4Transform, at Z = " << PointGlobal[2] << "  X= " << localPosition[0] << " approx " << Point[0] 
@@ -1610,7 +1612,7 @@ void NumiMagneticFieldOC::GetFieldValue(const double PointGlobal[3],double *Bfie
   G4ThreeVector Position=G4ThreeVector(PointGlobal[0],PointGlobal[1],PointGlobal[2]); 
   G4VPhysicalVolume* myVolume = numinavigator->LocateGlobalPointAndSetup(Position);
   if (myVolume == 0) return;
-  G4TouchableHistoryHandle aTouchable = numinavigator->CreateTouchableHistoryHandle();
+  G4TouchableHandle aTouchable = numinavigator->CreateTouchableHistoryHandle();
   G4ThreeVector localPosition = aTouchable->GetHistory()->GetTopTransform().TransformPoint(Position);
 
   delete numinavigator;

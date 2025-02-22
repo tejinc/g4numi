@@ -17,6 +17,8 @@
 #include "NumiMagneticField.hh"
 #include "G4FieldManager.hh"
 #include "G4UserLimits.hh"
+
+using namespace CLHEP;
 static const G4double in=2.54*cm;
 
 void NumiDetectorConstruction::ConstructHorn2(G4ThreeVector hornpos, G4RotationMatrix hornrot)

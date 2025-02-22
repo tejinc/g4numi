@@ -16,6 +16,8 @@
 #include "G4TrajectoryContainer.hh"
 #include "Randomize.hh"
 
+using namespace CLHEP;
+
 NumiImpWeight::NumiImpWeight()
 { 
 }

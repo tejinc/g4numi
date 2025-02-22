@@ -31,6 +31,8 @@
 #include "NumiDataInput.hh"
 #include <math.h>
 
+using namespace CLHEP;
+
 void NumiDetectorConstruction::ConstructHadronAbsorber()
 {
   G4cout << "Starting Hadron Absorber construction... ";

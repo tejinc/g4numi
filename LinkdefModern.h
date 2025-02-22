@@ -1,4 +1,4 @@
-#ifdef __CINT__
+// #ifdef __CINT__
 #pragma link off all globals;
 #pragma link off all classes;
 #pragma link off all functions;
@@ -26,4 +26,4 @@
 //#pragma link C++ class bsim::Traj+;
 //#pragma link C++ class bsim::Dk2Nu+;
 
-#endif
+// #endif

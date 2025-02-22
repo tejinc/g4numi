@@ -14,6 +14,7 @@
 #include "Randomize.hh"
 #include "G4RunManager.hh"
 
+using namespace CLHEP;
 NumiPrimaryMessenger::NumiPrimaryMessenger(NumiPrimaryGeneratorAction* RA)
   :PrimaryAction (RA)
 {

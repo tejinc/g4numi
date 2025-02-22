@@ -13,6 +13,7 @@
 const double rdet = 100.; //in cm
 
 using namespace std;
+using namespace CLHEP;
 
 NumiNuWeight::NumiNuWeight()
 {

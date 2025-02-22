@@ -9,6 +9,8 @@
 #include "globals.hh"
 #include "NumiDataInput.hh"
 
+using namespace CLHEP;
+
 void NumiDetectorConstruction::DefineMaterials()
 {  
 

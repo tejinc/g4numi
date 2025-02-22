@@ -53,7 +53,7 @@
 #include <sstream>
 #include <iostream>
 
-#define USEMODGEANT4
+// #define USEMODGEANT4
 #ifdef USEMODGEANT4 
 
 #include "MinervaElementInter.hh"
@@ -61,6 +61,7 @@
 #endif
 
 using namespace std;
+using namespace CLHEP;
 
 NumiAnalysis* NumiAnalysis::instance = 0;
 
@@ -511,8 +512,8 @@ void NumiAnalysis::FillMeta(){
   int NPots = pRunManager->GetCurrentRun()->GetNumberOfEventToBeProcessed();
 
   G4String namentp = (NumiData->nuNtupleName);
-  G4int pos_last = namentp.last('_');
-  namentp.remove(0,pos_last+1);
+  G4int pos_last = namentp.rfind('_');
+  namentp.erase(0,pos_last+1);
   istringstream buffer(namentp);
   int valjob;
   buffer >> valjob;
@@ -540,8 +541,8 @@ void NumiAnalysis::FillMeta(){
   G4String hornC = NumiData->GetBeamConfig();
   G4String tgtC  = NumiData->GetBeamConfig();
   G4int confsize = (NumiData->GetBeamConfig()).length();
-  hornC.remove(0,6);
-  tgtC.remove(6,confsize);
+  hornC.erase(0,6);
+  tgtC.erase(6,confsize);
   G4String playlist  = NumiData->GetPlaylist();
   
   G4bool isHe = NumiData->HeInDecayPipe;
@@ -1813,8 +1814,8 @@ void NumiAnalysis::FillNeutrinoNtuple(const G4Track& track, const std::vector<G4
 
   //calculating the job number:
   G4String namentp = (NumiData->nuNtupleName);
-  G4int namesize = (NumiData->nuNtupleName).last('_');
-  namentp.remove(0,namesize+1);
+  G4int namesize = (NumiData->nuNtupleName).rfind('_');
+  namentp.erase(0,namesize+1);
   istringstream buffer(namentp);
   int valjob;
   buffer >> valjob;
@@ -2165,3 +2166,4 @@ G4double NumiAnalysis::GetDistanceInVolume(NumiTrajectory* wanted_traj, G4String
   return dist_vol;
   
 }
+

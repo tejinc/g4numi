@@ -12,6 +12,9 @@
 #include "NumiDataInput.hh"
 #include "Randomize.hh"
 #include "NumiRunManager.hh"
+
+using namespace CLHEP;
+
 //------------------------------------------------------------------------------
 NumiRunAction::NumiRunAction()
 {

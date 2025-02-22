@@ -15,6 +15,8 @@
 #include "G4RotationMatrix.hh"
 #include "NumiDataInput.hh" 
 
+using namespace CLHEP;
+
 void NumiDetectorConstruction::ConstructTargetHall()
 {
 

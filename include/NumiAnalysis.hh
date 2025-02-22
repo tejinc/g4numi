@@ -158,6 +158,7 @@ private:
   std::vector<double> NovaNearNuMuHisto;
   std::vector<double> NovaFarNuMuBarHisto;
   std::vector<double> NovaNearNuMuBarHisto;
+
 };
 
 #endif 
