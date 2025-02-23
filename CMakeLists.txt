@@ -3,14 +3,14 @@ project(g4numi)
 
 # Options
 option(WITH_MODERN_G4 "Build against modern GEANT4 with 1-arg exception" ON)
-option(WITH_DK2NU     "Build against Dk2Nu" ON)
+option(WITH_DK2NU     "Build against Dk2Nu" OFF)
 option(WITH_G4NU      "Build against G4NuPhysicsLists" OFF)
 option(WITH_GEANT4_UIVIS "Build with GEANT4 UI and Vis drivers" ON)
 
 # Set C++ standard and compiler flags
 # set(CMAKE_CXX_STANDARD 17)
 # set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -w")
+# set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -w")
 
 #----------------------------------------------------------------------------
 # Find GEANT4
@@ -88,8 +88,12 @@ endif()
 # Locate sources and headers
 #
 file(GLOB sources ${PROJECT_SOURCE_DIR}/src/*.cc)
-file(GLOB headers ${PROJECT_SOURCE_DIR}/include/*.hh)
-file(GLOB cintheaders ${PROJECT_SOURCE_DIR}/include/*_t.hh)
+if(WITH_DK2NU)
+  file(GLOB headers ${PROJECT_SOURCE_DIR}/include/*.hh) 
+else()
+  file(GLOB headers ${PROJECT_SOURCE_DIR}/include/*.hh ${PROJECT_SOURCE_DIR}/include/*.h) 
+endif()
+file(GLOB cintheaders ${PROJECT_SOURCE_DIR}/include/*_t.hh ${PROJECT_SOURCE_DIR}/include/*.h)
 
 # Exclude unwanted files
 file(GLOB rmsources1 ${PROJECT_SOURCE_DIR}/src/NA49*)
@@ -99,8 +103,13 @@ file(GLOB rmheaders1 ${PROJECT_SOURCE_DIR}/include/NA49*)
 file(GLOB rmheaders2 ${PROJECT_SOURCE_DIR}/include/dk*)
 file(GLOB rmheaders3 ${PROJECT_SOURCE_DIR}/include/g4numiCint*)
 
-list(REMOVE_ITEM sources ${rmsources1} ${rmsources2} ${rmsources3})
-list(REMOVE_ITEM headers ${rmheaders1} ${rmheaders2} ${rmheaders3})
+if(WITH_DK2NU)
+  list(REMOVE_ITEM sources ${rmsources1} ${rmsources2} ${rmsources3})
+  list(REMOVE_ITEM headers ${rmheaders1} ${rmheaders2} ${rmheaders3})
+else()
+  list(REMOVE_ITEM sources ${rmsources1} ${rmsources3})
+  list(REMOVE_ITEM headers ${rmheaders1} ${rmheaders3})
+endif()
 
 #----------------------------------------------------------------------------
 # Generate ROOT dictionary
